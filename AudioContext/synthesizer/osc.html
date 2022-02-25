@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <audio src="myCoolTrack.mp3" type="audio/mpeg"></audio> -->
+
+    <select name="type" id="type">
+        <option value="sine">Sine</option>
+        <option value="square">Square</option>
+        <option value="sawtooth">Sawtooth</option>
+        <option value="triangle">Triangle</option>
+    </select>
+    <input type="range" name="freq" id="freq" min="1" value="1000" max="10000" orient="vertical" step="10"> Freq: <span></span>
+    <input type="button" value="Start/Stop">
+    <div class="compress"> compress</div>
+</body>
+<script>
+    // create web audio api context
+    var audioCtx = new(window.AudioContext || window.webkitAudioContext)();
+    // create Oscillator node
+    // var oscillator = audioCtx.createOscillator();
+    var oscillator
+    var playing = false;
+
+    document.querySelector('input[type="button"]').addEventListener('click', () => {
+        if (playing) {
+            oscillator.stop()
+            oscillator.disconnect()
+        } else {
+            oscillator = audioCtx.createOscillator();
+            oscillator.type = document.querySelector('#type').value
+
+            oscillator.frequency.setValueAtTime(document.querySelector('#freq').value, audioCtx.currentTime); // value in hertz
+            oscillator.connect(audioCtx.destination);
+            oscillator.start();
+        }
+        playing = (!playing)
+    })
+
+    document.querySelector('#freq').addEventListener('input', () => {
+        oscillator.stop()
+        oscillator.disconnect()
+        oscillator = audioCtx.createOscillator();
+        oscillator.type = document.querySelector('#type').value
+
+        oscillator.frequency.setValueAtTime(document.querySelector('#freq').value, audioCtx.currentTime); // value in hertz
+        oscillator.connect(audioCtx.destination);
+        oscillator.start();
+    })
+
+    document.querySelector('.compress').addEventListener('click', () => {
+        console.log("COm")
+        var compressor = audioCtx.createDynamicsCompressor();
+        compressor.threshold.setValueAtTime(-50, audioCtx.currentTime);
+        compressor.knee.setValueAtTime(40, audioCtx.currentTime);
+        compressor.ratio.setValueAtTime(12, audioCtx.currentTime);
+        compressor.attack.setValueAtTime(0, audioCtx.currentTime);
+        compressor.release.setValueAtTime(0.25, audioCtx.currentTime);
+
+        compressor.connect(audioCtx.destination)
+    })
+
+
+    // oscillator.type = 'square';
+    // oscillator.type = 'triangle'
+    // oscillator.type = 'sine'
+    // oscillator.frequency.setValueAtTime(800, audioCtx.currentTime); // value in hertz
+    // oscillator.connect(audioCtx.destination);
+    // oscillator.start();
+    // oscillator.onended=function(e){
+    //     console.log(e)
+    // }
+</script>
+
+</html>

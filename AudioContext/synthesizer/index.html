@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="synth">
+            <div class="type">Sine</div><br><br><br><br><br><br><br><br>
+            <input type="range" name="sinefreq" id="sinefreq" value="0" min="0" max="1000">
+            <br><br><br><br><br><br><br><br>
+            <input class="freqnum" name="sinef" id="sinef" value="0" disabled>
+        </div>
+        <div class="synth">
+            <div class="type">Square</div><br><br><br><br><br><br><br><br>
+            <input type="range" name="squarefreq" id="squarefreq" value="0" min="0" max="1000">
+            <br><br><br><br><br><br><br><br>
+            <input class="freqnum" name="squaref" id="squaref" value="0" disabled>
+        </div>
+        <div class="synth">
+            <div class="type">Sawtooth</div><br><br><br><br><br><br><br><br>
+            <input type="range" name="sawfreq" id="sawfreq" value="0" min="0" max="1000">
+            <br><br><br><br><br><br><br><br>
+            <input class="freqnum" name="sawf" id="sawf" value="0" disabled>
+        </div>
+        <div class="synth">
+            <div class="type">Triangle</div><br><br><br><br><br><br><br><br>
+            <input type="range" name="trifreq" id="trifreq" value="0" min="0" max="1000">
+            <br><br><br><br><br><br><br><br>
+            <input class="freqnum" name="trif" id="trif" value="0" disabled>
+        </div>
+    </div>
+    <div class="button">Pause/Play</div>
+</body>
+<script src="script.js"></script>
+</html>

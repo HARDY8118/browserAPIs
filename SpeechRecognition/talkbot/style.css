@@ -1,0 +1,89 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* overflow: hidden; */
+    background: linear-gradient(to top, #ffffff, #9999ff);
+}
+
+div.container {
+    height: 49vw;
+    width: 100%;
+}
+
+div.main-box {
+    margin-left: 25%;
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(to bottom, #ffffff, #99ff99);
+    display: flex;
+    flex-direction: column;
+}
+
+div.message-box {
+    /* overflow-y: scroll; */
+    overflow-y: auto;
+    flex: 11;
+    padding: 1em;
+}
+
+div.message-box::-webkit-scrollbar{
+    background-color: aqua;
+}
+
+div.message-box::-webkit-scrollbar-button{
+    background-color: brown;
+}
+
+div.message-box::-webkit-scrollbar-thumb{
+    background-color: coral;
+}
+
+div.message-box::-webkit-scrollbar-track{
+    background-color: floralwhite;
+}
+div.message-box::-webkit-scrollbar-track-piece{
+    background-color: darkmagenta;
+}
+
+div.message{
+    display: block;
+    width: 100%;
+    padding: 4px;
+}
+
+.response{
+    background: linear-gradient(to left, #ffffff, #77ff77);
+    float: right;
+}
+
+.request{
+    background: linear-gradient(to right, #ffffff, #77ff77);
+    text-align: right;
+}
+
+div.input-box {
+    height: 2em;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+div.text-input {
+    padding: 1em;
+    flex: 7;
+    background: linear-gradient(to right, #f46f7f, #ffffff);
+}
+
+div.speech-input {
+    background: linear-gradient(to left, #facb31,#f79233);
+    padding-top: 1em;
+    padding-left: 1em;
+    flex: 1;
+    cursor: pointer;    
+}

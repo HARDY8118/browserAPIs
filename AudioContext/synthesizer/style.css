@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.synth {
+    margin: 1em;
+    text-align: center;
+}
+
+.type {
+    margin-top: 1em;
+    text-align: center;
+}
+
+input[type="range"] {
+    width: 40vh;
+    transform-origin: center;
+    transform: rotate(90deg);
+}
+
+.freqnum {
+    text-align: center;
+    width: 4em;
+}
+
+.button {
+    margin-top: 2em;
+    text-align: center;
+    font-size: 2em;
+    cursor: default;
+}
